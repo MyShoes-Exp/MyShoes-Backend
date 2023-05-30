@@ -1,6 +1,7 @@
 package com.acme.myshoes.platform.shoes.domain.model;
 
 import com.acme.myshoes.platform.shared.domain.model.AuditModel;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -28,6 +29,13 @@ public class Shoe extends AuditModel {
     @NotNull
     @NotBlank
     @Size(max=20)
-    private String ownerName;
+
     private float size;
+
+    //Relationships
+    @ManyToOne
+    @JoinColumn(name="shoe_id", nullable = false)
+    @JsonIgnore
+    private Collection collection;
+
 }

@@ -46,6 +46,12 @@ public class CollectionServiceImpl implements CollectionService {
     }
 
     @Override
+    public Collection getByName(String name) {
+        return collectionRepository.findByName(name)
+                .orElseThrow(()-> new ResourceNotFoundException("No exists a collection with this name"));
+    }
+
+    @Override
     public Collection create(Collection collection) {
         Set<ConstraintViolation<Collection>> violations = validator.validate(collection);
         if(!violations.isEmpty())

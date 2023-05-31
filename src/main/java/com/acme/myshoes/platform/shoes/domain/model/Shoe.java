@@ -30,7 +30,7 @@ public class Shoe extends AuditModel {
     @NotBlank
     @Size(max=20)
 
-    private float size;
+    private Float size;
 
     //Relationships
     @ManyToOne

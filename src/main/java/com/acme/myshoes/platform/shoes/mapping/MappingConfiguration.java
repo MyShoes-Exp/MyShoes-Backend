@@ -10,4 +10,8 @@ public class MappingConfiguration {
     public CollectionMapper collectionMapper() {
         return new CollectionMapper();
     }
+    @Bean
+    public ShoeMapper shoeMapper() {
+        return new ShoeMapper();
+    }
 }

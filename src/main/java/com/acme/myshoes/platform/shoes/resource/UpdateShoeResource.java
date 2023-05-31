@@ -10,10 +10,14 @@ import lombok.*;
 @With
 @NoArgsConstructor
 @AllArgsConstructor
-public class CreateCollectionResource {
+public class UpdateShoeResource {
     @NotNull
     @NotBlank
     @Size(max=20)
     String name;
+    @NotNull
+    @NotBlank
+    @Size(max=20)
+    Float size;
 
 }

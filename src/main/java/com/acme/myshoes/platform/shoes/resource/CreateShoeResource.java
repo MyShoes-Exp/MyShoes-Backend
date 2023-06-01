@@ -13,12 +13,9 @@ import lombok.*;
 public class CreateShoeResource {
     @NotNull
     @NotBlank
-    @Size(max=20)
+    @Size(max=60)
     String name;
 
-    @NotNull
-    @NotBlank
-    @Size(max=20)
-    Float size;
+    int size;
 
 }

@@ -7,6 +7,6 @@ import jakarta.validation.constraints.Size;
 public class UpdateCollectionResource {
     @NotNull
     @NotBlank
-    @Size(max=20)
+    @Size(max=60)
     String name;
 }

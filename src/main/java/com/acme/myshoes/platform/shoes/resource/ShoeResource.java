@@ -10,5 +10,6 @@ import lombok.*;
 public class ShoeResource {
     Long id;
     String name;
-    Float Size;
+    int Size;
+
 }

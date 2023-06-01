@@ -24,7 +24,7 @@ public class Collection {
 
     @NotBlank
     @NotNull
-    @Size(max=20)
+    @Size(max=60)
     @Column(unique = true)
     private String name;
 

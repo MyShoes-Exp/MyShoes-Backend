@@ -54,4 +54,5 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
         }).orElseThrow(() -> new ResourceNotFoundException(ENTITY, shoppingCartId));
     }
 
+    
 }

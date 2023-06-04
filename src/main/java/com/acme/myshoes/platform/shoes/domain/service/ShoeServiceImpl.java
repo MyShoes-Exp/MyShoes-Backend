@@ -66,12 +66,16 @@ public class ShoeServiceImpl implements ShoeService{
     }
 
     @Override
-    public Shoe create(Shoe shoe) {
+    public Shoe create(Shoe shoe,Long collectionId) {
+        shoe.setCollection(
+                collectionRepository.findById(collectionId).orElseThrow(()-> new ResourceNotFoundException("No exists a collection with this id"))
+        );
         Set<ConstraintViolation<Shoe>> violations = validator.validate(shoe);
         if(!violations.isEmpty())
             throw new ResourceValidationException(ENTITY, violations);
         if(shoeRepository.findByName(shoe.getName()).isPresent())
             throw new ResourceValidationException(ENTITY, "An collection with the same name already exists.");
+
         return shoeRepository.save(shoe);
     }
 

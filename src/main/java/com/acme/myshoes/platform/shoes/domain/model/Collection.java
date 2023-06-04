@@ -1,5 +1,6 @@
 package com.acme.myshoes.platform.shoes.domain.model;
 
+import com.acme.myshoes.platform.shared.domain.model.AuditModel;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -16,8 +17,8 @@ import java.util.Set;
 @With
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "collections")
-public class Collection {
+@Table(name = "collection")
+public class Collection extends AuditModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

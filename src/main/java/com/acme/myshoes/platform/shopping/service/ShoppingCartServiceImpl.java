@@ -1,5 +1,6 @@
 package com.acme.myshoes.platform.shopping.service;
 
+import com.acme.myshoes.platform.shoes.domain.model.Shoe;
 import com.acme.myshoes.platform.shoes.exception.ResourceNotFoundException;
 import com.acme.myshoes.platform.shoes.exception.ResourceValidationException;
 import com.acme.myshoes.platform.shopping.domain.model.ShoppingCart;
@@ -13,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 @Service
@@ -54,6 +56,30 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
         }).orElseThrow(() -> new ResourceNotFoundException(ENTITY, shoppingCartId));
     }
 
+    public void AddShoesToCart(Long shoppingCartId, Shoe shoe) {
+        ShoppingCart shoppingCart = shoppingCartRepository.findById(shoppingCartId).orElseThrow(() -> new ResourceNotFoundException(ENTITY, shoppingCartId));
+        shoppingCart.addShoe(shoe);
+        shoppingCartRepository.save(shoppingCart);
+    }
+
+    public ShoppingCart getById(Long shoppingcartId){
+        return shoppingCartRepository.findById(shoppingcartId).orElseThrow(() -> new ResourceNotFoundException(ENTITY, shoppingcartId));
+    }
+
+    @Override
+    public ShoppingCart update(Long id, ShoppingCart shoppingCart){
+       Set<ConstraintViolation<ShoppingCart>>violations = validator.validate(shoppingCart);
+         if(!violations.isEmpty())
+              throw new ResourceValidationException(ENTITY, violations);
+        Optional<ShoppingCart> shoppingCartWithId = shoppingCartRepository.findById(id);
+
+        if(shoppingCartWithId.isPresent() && !shoppingCartWithId.get().getId().equals(id))
+            throw new ResourceValidationException(ENTITY, "A shopping cart with id " + id + " does not exist");
+
+        return shoppingCartRepository.findById(id).map(existingShoppingCart ->
+                    shoppingCartRepository.save(existingShoppingCart.withId(shoppingCart.getId())))
+                .orElseThrow(() -> new ResourceNotFoundException(ENTITY, id));
+    }
 
 
 }

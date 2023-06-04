@@ -32,4 +32,5 @@ public class ShoppingCart extends AuditModel {
     @JsonIgnore
     private Collection collection;
     //cambiar private
+
 }

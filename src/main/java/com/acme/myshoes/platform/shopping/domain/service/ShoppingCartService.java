@@ -12,4 +12,5 @@ public interface ShoppingCartService {
     Page<ShoppingCart> getAll(Pageable pageable);
     ShoppingCart create(ShoppingCart shoppingCart);
     ResponseEntity<?> delete(Long shoppingCartId);
+
 }

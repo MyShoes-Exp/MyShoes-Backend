@@ -1,9 +1,10 @@
-package com.acme.myshoes.platform.shoes.domain.service;
+package com.acme.myshoes.platform.shoes.service;
 
 import com.acme.myshoes.platform.shoes.domain.model.Collection;
 import com.acme.myshoes.platform.shoes.domain.model.Shoe;
 import com.acme.myshoes.platform.shoes.domain.persistence.CollectionRepository;
 import com.acme.myshoes.platform.shoes.domain.persistence.ShoeRepository;
+import com.acme.myshoes.platform.shoes.domain.service.ShoeService;
 import com.acme.myshoes.platform.shoes.exception.ResourceNotFoundException;
 import com.acme.myshoes.platform.shoes.exception.ResourceValidationException;
 import jakarta.validation.ConstraintViolation;
@@ -19,7 +20,7 @@ import java.util.Optional;
 import java.util.Set;
 
 @Service
-public class ShoeServiceImpl implements ShoeService{
+public class ShoeServiceImpl implements ShoeService {
     private static final String Entity = "Collection";
     private final ShoeRepository shoeRepository;
     private final CollectionRepository collectionRepository;

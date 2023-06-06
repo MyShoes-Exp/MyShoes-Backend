@@ -1,7 +1,8 @@
-package com.acme.myshoes.platform.shoes.domain.service;
+package com.acme.myshoes.platform.shoes.service;
 
 import com.acme.myshoes.platform.shoes.domain.model.Collection;
 import com.acme.myshoes.platform.shoes.domain.persistence.CollectionRepository;
+import com.acme.myshoes.platform.shoes.domain.service.CollectionService;
 import com.acme.myshoes.platform.shoes.exception.ResourceNotFoundException;
 import com.acme.myshoes.platform.shoes.exception.ResourceValidationException;
 import jakarta.validation.ConstraintViolation;

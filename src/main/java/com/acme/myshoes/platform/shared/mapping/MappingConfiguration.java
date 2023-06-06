@@ -10,3 +10,4 @@ public class MappingConfiguration{
         return new EnhancedModelMapper();
     }
 }
+

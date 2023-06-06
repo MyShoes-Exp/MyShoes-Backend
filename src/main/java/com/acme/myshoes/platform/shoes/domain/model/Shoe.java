@@ -22,20 +22,22 @@ public class Shoe extends AuditModel {
 
     @NotNull
     @NotBlank
-    @Size(max=20)
+    @Size(max=60)
     @Column(unique = true)
     private String name;
 
-    @NotNull
-    @NotBlank
-    @Size(max=20)
-
-    private float size;
+    private int size;
 
     //Relationships
     @ManyToOne
-    @JoinColumn(name="shoe_id", nullable = false)
+    @JoinColumn(name="collection_id", nullable = false)
     @JsonIgnore
     private Collection collection;
-
+    
+    @ManyToMany
+    @JoinTable(name = "shopping_cart_shoe",
+            joinColumns = @JoinColumn(name = "shoe_id"),
+            inverseJoinColumns = @JoinColumn(name = "shopping_cart_id"))
+    @JsonIgnore
+    private Set<ShoppingCart> shoppingCarts = new HashSet<>();
 }

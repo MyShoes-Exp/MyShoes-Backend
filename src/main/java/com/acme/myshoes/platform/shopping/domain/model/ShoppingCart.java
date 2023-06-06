@@ -19,20 +19,20 @@ import java.util.Set;
 @AllArgsConstructor
 @Entity
 @Table(name = "shopping_cart")
-public class ShoppingCart extends AuditModel {
+public class ShoppingCart{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     //private Long total;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "shoppingCart")
-    private List<Shoe> shoes = new ArrayList<>();
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "shoppingCarts")
+    private Set<Shoe> shoes = new HashSet<>();
 
-    @OneToOne
+/*    @OneToOne
     @JoinColumn(name="shopping_cart_id", nullable = false)
     @JsonIgnore
-    private Collection collection;//reemplazar por User
+    private Collection collection;//reemplazar por User*/
 
     public ShoppingCart(){
         shoes = new ArrayList<>();

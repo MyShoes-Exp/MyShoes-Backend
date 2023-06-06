@@ -1,6 +1,6 @@
 package com.acme.myshoes.platform.shoes.mapping;
 
-import com.acme.myshoes.platform.shoes.domain.model.Collection;
+import com.acme.myshoes.platform.authentication.mapping.UserMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

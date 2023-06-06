@@ -1,6 +1,6 @@
 package com.acme.myshoes.platform.shoes.domain.service;
 
-import com.acme.myshoes.platform.shoes.domain.model.User;
+import com.acme.myshoes.platform.authentication.domain.model.User;
 import com.acme.myshoes.platform.shoes.domain.persistence.UserRepository;
 import com.acme.myshoes.platform.shoes.exception.ResourceNotFoundException;
 import com.acme.myshoes.platform.shoes.exception.ResourceValidationException;

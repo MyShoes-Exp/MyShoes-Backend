@@ -1,6 +1,6 @@
 package com.acme.myshoes.platform.shoes.domain.service;
 
-import com.acme.myshoes.platform.shoes.domain.model.User;
+import com.acme.myshoes.platform.authentication.domain.model.User;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;

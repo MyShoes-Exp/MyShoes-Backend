@@ -1,7 +1,7 @@
 package com.acme.myshoes.platform.shoes.mapping;
 
 import com.acme.myshoes.platform.shared.mapping.EnhancedModelMapper;
-import com.acme.myshoes.platform.shoes.domain.model.User;
+import com.acme.myshoes.platform.authentication.domain.model.User;
 import com.acme.myshoes.platform.authentication.resource.CreateUserResource;
 import com.acme.myshoes.platform.authentication.resource.UpdateUserResource;
 import com.acme.myshoes.platform.authentication.resource.UserResource;

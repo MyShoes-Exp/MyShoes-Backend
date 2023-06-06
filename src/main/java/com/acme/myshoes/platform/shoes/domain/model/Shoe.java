@@ -33,11 +33,5 @@ public class Shoe extends AuditModel {
     @JoinColumn(name="collection_id", nullable = false)
     @JsonIgnore
     private Collection collection;
-    
-    @ManyToMany
-    @JoinTable(name = "shopping_cart_shoe",
-            joinColumns = @JoinColumn(name = "shoe_id"),
-            inverseJoinColumns = @JoinColumn(name = "shopping_cart_id"))
-    @JsonIgnore
-    private Set<ShoppingCart> shoppingCarts = new HashSet<>();
+
 }

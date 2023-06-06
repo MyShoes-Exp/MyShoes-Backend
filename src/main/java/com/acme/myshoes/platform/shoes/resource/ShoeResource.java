@@ -1,5 +1,6 @@
 package com.acme.myshoes.platform.shoes.resource;
 
+import com.acme.myshoes.platform.shoes.domain.model.Category;
 import com.acme.myshoes.platform.shoes.domain.model.Collection;
 import lombok.*;
 
@@ -13,4 +14,5 @@ public class ShoeResource {
     String name;
     int Size;
     Collection collection;
+    Category category;
 }

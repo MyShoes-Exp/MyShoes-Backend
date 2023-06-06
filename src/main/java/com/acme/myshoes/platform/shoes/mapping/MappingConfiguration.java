@@ -1,5 +1,6 @@
 package com.acme.myshoes.platform.shoes.mapping;
 
+import com.acme.myshoes.platform.shoes.domain.model.Category;
 import com.acme.myshoes.platform.shoes.domain.model.Collection;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,5 +14,9 @@ public class MappingConfiguration {
     @Bean
     public ShoeMapper shoeMapper() {
         return new ShoeMapper();
+    }
+    @Bean
+    public CategoryMapper categoryMapper() {
+        return new CategoryMapper();
     }
 }

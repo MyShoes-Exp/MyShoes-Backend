@@ -1,7 +1,5 @@
 package com.acme.myshoes.platform.designing.domain.model;
 
-
-
 import jakarta.persistence.*;
 import lombok.*;
 

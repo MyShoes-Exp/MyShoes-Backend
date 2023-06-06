@@ -14,8 +14,4 @@ public class MappingConfiguration {
     public ShoeMapper shoeMapper() {
         return new ShoeMapper();
     }
-    @Bean
-    public UserMapper userMapper() {
-        return new UserMapper(); 
-    }
 }

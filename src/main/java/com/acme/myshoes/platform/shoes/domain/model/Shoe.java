@@ -1,16 +1,12 @@
 package com.acme.myshoes.platform.shoes.domain.model;
 
 import com.acme.myshoes.platform.shared.domain.model.AuditModel;
-import com.acme.myshoes.platform.shopping.domain.model.ShoppingCart;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.*;
-
-import java.util.HashSet;
-import java.util.Set;
 
 @Getter
 @Setter
@@ -37,11 +33,5 @@ public class Shoe extends AuditModel {
     @JoinColumn(name="collection_id", nullable = false)
     @JsonIgnore
     private Collection collection;
-    
-    @ManyToMany
-    @JoinTable(name = "shopping_cart_shoe",
-            joinColumns = @JoinColumn(name = "shoe_id"),
-            inverseJoinColumns = @JoinColumn(name = "shopping_cart_id"))
-    @JsonIgnore
-    private Set<ShoppingCart> shoppingCarts = new HashSet<>();
+
 }

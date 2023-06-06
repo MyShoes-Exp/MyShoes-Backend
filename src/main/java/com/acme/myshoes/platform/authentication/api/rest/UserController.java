@@ -1,4 +1,4 @@
-package com.acme.myshoes.platform.shoes.api.rest;
+package com.acme.myshoes.platform.authentication.api.rest;
 
 import com.acme.myshoes.platform.authentication.domain.service.UserService;
 import com.acme.myshoes.platform.shoes.mapping.UserMapper;

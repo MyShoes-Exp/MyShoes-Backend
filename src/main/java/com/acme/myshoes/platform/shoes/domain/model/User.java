@@ -1,6 +1,8 @@
 package com.acme.myshoes.platform.shoes.domain.model;
 
+import com.acme.myshoes.platform.orders.domain.model.Order;
 import com.acme.myshoes.platform.shared.domain.model.AuditModel;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -37,4 +39,11 @@ public class User extends AuditModel {
 
     @Size(max = 240)
     private String address;
+
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @JoinColumn(name = "order_id", nullable = false)
+    @JsonIgnore
+    private Order order;
+
+
 }

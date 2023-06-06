@@ -1,9 +1,6 @@
 package com.acme.myshoes.platform.orders.domain.service;
-
 import com.acme.myshoes.platform.orders.domain.model.Order;
-import com.acme.myshoes.platform.shoes.domain.model.Shoe;
 import com.acme.myshoes.platform.shoes.domain.model.User;
-import com.acme.myshoes.platform.shopping.domain.model.ShoppingCart;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;

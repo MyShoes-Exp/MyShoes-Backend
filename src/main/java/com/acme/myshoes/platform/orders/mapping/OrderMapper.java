@@ -5,7 +5,6 @@ import com.acme.myshoes.platform.orders.resource.CreateOrderResource;
 import com.acme.myshoes.platform.orders.resource.OrderResource;
 import com.acme.myshoes.platform.orders.resource.UpdateOrderResource;
 import com.acme.myshoes.platform.shared.mapping.EnhancedModelMapper;
-import com.acme.myshoes.platform.shopping.domain.model.ShoppingCart;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -18,7 +17,7 @@ public class OrderMapper implements Serializable {
     @Autowired
     EnhancedModelMapper mapper;
 
-    public OrderResource toResource(ShoppingCart model){
+    public OrderResource toResource(Order model){
         return mapper.map(model, OrderResource.class);
     }
 

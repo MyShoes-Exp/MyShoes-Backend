@@ -1,6 +1,5 @@
 package com.acme.myshoes.platform.orders.domain.service;
 import com.acme.myshoes.platform.orders.domain.model.Order;
-import com.acme.myshoes.platform.shoes.domain.model.User;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +17,5 @@ public interface OrderService {
     Order update(Long id, Order order);
     ResponseEntity<?> delete(Long orderId);
 
-    Order AddUserToOrder(Long orderId, User user);
 
 }

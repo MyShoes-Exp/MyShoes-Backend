@@ -1,4 +1,4 @@
-package com.acme.myshoes.platform.shoes.resource;
+package com.acme.myshoes.platform.authentication.resource;
 
 import lombok.*;
 

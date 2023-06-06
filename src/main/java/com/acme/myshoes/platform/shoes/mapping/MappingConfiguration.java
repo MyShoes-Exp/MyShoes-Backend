@@ -7,5 +7,15 @@ import org.springframework.context.annotation.Configuration;
 @Configuration("shoesMappingConfiguration")
 public class MappingConfiguration {
     @Bean
-    public UserMapper userMapper(){ return new UserMapper(); }
+    public CollectionMapper collectionMapper() {
+        return new CollectionMapper();
+    }
+    @Bean
+    public ShoeMapper shoeMapper() {
+        return new ShoeMapper();
+    }
+    @Bean
+    public UserMapper userMapper() {
+        return new UserMapper(); 
+    }
 }

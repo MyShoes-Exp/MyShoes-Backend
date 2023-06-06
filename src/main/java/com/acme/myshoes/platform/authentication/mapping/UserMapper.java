@@ -1,4 +1,4 @@
-package com.acme.myshoes.platform.shoes.mapping;
+package com.acme.myshoes.platform.authentication.mapping;
 
 import com.acme.myshoes.platform.shared.mapping.EnhancedModelMapper;
 import com.acme.myshoes.platform.authentication.domain.model.User;

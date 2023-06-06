@@ -1,6 +1,6 @@
 package com.acme.myshoes.platform.shoes.api.rest;
 
-import com.acme.myshoes.platform.shoes.domain.service.UserService;
+import com.acme.myshoes.platform.authentication.domain.service.UserService;
 import com.acme.myshoes.platform.shoes.mapping.UserMapper;
 import com.acme.myshoes.platform.authentication.resource.CreateUserResource;
 import com.acme.myshoes.platform.authentication.resource.UpdateUserResource;

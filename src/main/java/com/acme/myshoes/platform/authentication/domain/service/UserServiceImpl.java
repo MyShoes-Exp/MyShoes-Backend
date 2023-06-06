@@ -1,7 +1,8 @@
-package com.acme.myshoes.platform.shoes.domain.service;
+package com.acme.myshoes.platform.authentication.domain.service;
 
 import com.acme.myshoes.platform.authentication.domain.model.User;
 import com.acme.myshoes.platform.authentication.domain.persistence.UserRepository;
+import com.acme.myshoes.platform.authentication.domain.service.UserService;
 import com.acme.myshoes.platform.shoes.exception.ResourceNotFoundException;
 import com.acme.myshoes.platform.shoes.exception.ResourceValidationException;
 import jakarta.validation.ConstraintViolation;
@@ -15,7 +16,7 @@ import java.util.List;
 import java.util.Set;
 
 @Service
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
     private static final String ENTITY = "User";
     private final UserRepository userRepository;
     private final Validator validator;

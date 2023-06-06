@@ -1,4 +1,4 @@
-package com.acme.myshoes.platform.shoes.domain.service;
+package com.acme.myshoes.platform.authentication.domain.service;
 
 import com.acme.myshoes.platform.authentication.domain.model.User;
 import org.springframework.data.domain.Page;

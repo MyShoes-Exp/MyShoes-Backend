@@ -27,7 +27,7 @@ public class ResourceValidationException extends RuntimeException{
     }
 
     //stream: permite realizar operaciones de manera secuencial.
-    //map aplicara el lamda acada elemento de violations. a
+    //map aplicara el lamda acada elemento de violations.
     public <T>ResourceValidationException(String resourceName, Set<ConstraintViolation<T>> violations){
         violations.stream().map(violation -> String.format("%s %s:",
                 violation.getPropertyPath(), violation.getMessage())).collect(Collectors.joining(", "));

@@ -34,9 +34,6 @@ public class ShoppingCart{
     @JsonIgnore
     private Collection collection;//reemplazar por User*/
 
-    public ShoppingCart(){
-        shoes = new ArrayList<>();
-    }
     public void addShoe(Shoe shoe){
         shoes.add(shoe);
     }
@@ -48,11 +45,11 @@ public class ShoppingCart{
         this.id = id;
     }
 
-    public List<Shoe> getShoes() {
+    public Set<Shoe> getShoes() {
         return shoes;
     }
 
-    public void setShoes(List<Shoe> shoes) {
+    public void setShoes(Set<Shoe> shoes) {
         this.shoes = shoes;
     }
 

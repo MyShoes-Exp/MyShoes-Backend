@@ -10,5 +10,6 @@ public class MappingConfiguration {
     public OrderMapper orderMapper() {
         return new OrderMapper();
     }
-
+   @Bean
+    public OrderItemMapper orderItemMapper(){return new OrderItemMapper();}
 }

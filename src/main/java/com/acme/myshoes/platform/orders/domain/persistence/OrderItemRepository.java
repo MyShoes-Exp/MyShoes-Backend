@@ -1,10 +1,10 @@
 package com.acme.myshoes.platform.orders.domain.persistence;
 
-import com.acme.myshoes.platform.orders.domain.model.Order;
+import com.acme.myshoes.platform.orders.domain.model.OrderItem;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface OrderRepository extends JpaRepository<Order,Long> {
+public interface OrderItemRepository extends JpaRepository <OrderItem, Long> {
 
 }

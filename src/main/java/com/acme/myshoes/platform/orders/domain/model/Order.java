@@ -1,9 +1,13 @@
 package com.acme.myshoes.platform.orders.domain.model;
 import com.acme.myshoes.platform.shared.domain.model.AuditModel;
+import com.acme.myshoes.platform.shoes.domain.model.Collection;
 import com.acme.myshoes.platform.shoes.domain.model.Shoe;
 import com.acme.myshoes.platform.shoes.domain.model.User;
 import com.acme.myshoes.platform.shopping.domain.model.ShoppingCart;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 import java.util.HashSet;
@@ -21,26 +25,11 @@ public class Order extends AuditModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "order")
-    private Set<User> user;
+    @NotNull
+    @NotBlank
+    private String type_shoes;
 
-
-
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Set<User> getUser() {
-        return user;
-    }
-
-    public void setUser(Set<User> user) {
-        this.user = user;
-    }
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "order")
+    private Set<OrderItem> orderItem= new HashSet<>();
 
 }

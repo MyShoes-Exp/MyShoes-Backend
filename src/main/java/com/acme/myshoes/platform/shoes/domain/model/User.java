@@ -40,10 +40,7 @@ public class User extends AuditModel {
     @Size(max = 240)
     private String address;
 
-    @ManyToOne(fetch = FetchType.EAGER, optional = false)
-    @JoinColumn(name = "order_id", nullable = false)
-    @JsonIgnore
-    private Order order;
+
 
 
 }

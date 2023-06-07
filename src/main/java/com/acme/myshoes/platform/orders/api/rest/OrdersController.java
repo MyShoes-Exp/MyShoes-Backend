@@ -5,7 +5,6 @@ import com.acme.myshoes.platform.orders.mapping.OrderMapper;
 import com.acme.myshoes.platform.orders.resource.CreateOrderResource;
 import com.acme.myshoes.platform.orders.resource.OrderResource;
 import com.acme.myshoes.platform.orders.resource.UpdateOrderResource;
-import org.springframework.context.annotation.Bean;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
@@ -22,7 +21,6 @@ public class OrdersController {
         this.orderService = orderService;
         this.mapper = mapper;
     }
-
 
 
 

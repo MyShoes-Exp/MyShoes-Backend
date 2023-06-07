@@ -13,6 +13,6 @@ public class ShoeResource {
     Long id;
     String name;
     int Size;
-    Collection collection;
-    Category category;
+    Long collection_id;
+    Long category_id;
 }

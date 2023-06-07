@@ -31,7 +31,7 @@ public class ShoeController {
 
     @PostMapping
     public ShoeResource createShoe(@RequestBody CreateShoeResource resource) {
-        return mapper.toResource(shoeService.create(mapper.toModel(resource), resource.getCollection()));
+        return mapper.toResource(shoeService.create(mapper.toModel(resource), resource.getCollection(), resource.getCategory()));
     }
 
     @PutMapping("{shoeId}")

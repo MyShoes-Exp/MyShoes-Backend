@@ -2,8 +2,6 @@ package com.acme.myshoes.platform.shoes.mapping;
 
 import com.acme.myshoes.platform.shared.mapping.EnhancedModelMapper;
 import com.acme.myshoes.platform.shoes.domain.model.Category;
-import com.acme.myshoes.platform.shoes.domain.model.Collection;
-import com.acme.myshoes.platform.shoes.domain.model.Shoe;
 import com.acme.myshoes.platform.shoes.resource.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

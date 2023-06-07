@@ -1,7 +1,12 @@
 package com.acme.myshoes.platform.shoes.resource;
 
-import com.acme.myshoes.platform.shoes.domain.model.Category;
+import lombok.*;
 
+@Getter
+@Setter
+@With
+@NoArgsConstructor
+@AllArgsConstructor
 public class CategoryResource {
     Long id;
     String name;

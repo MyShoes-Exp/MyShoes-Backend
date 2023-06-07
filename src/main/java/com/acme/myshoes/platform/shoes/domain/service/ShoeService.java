@@ -16,7 +16,7 @@ public interface ShoeService {
     Shoe getById(Long shoeId);
     List<Shoe> getByCollectionId(Long collectionId);
     List<Shoe> getByCollectionName(String name);
-    Shoe create(Shoe shoe, Long collectionId);
+    Shoe create(Shoe shoe, Long collectionId, Long categoryId);
     Shoe update(Long id, Shoe shoe);
     ResponseEntity<?> delete(Long shoeId); // este es un response porque al eliminar solo te devolvera si fue exitoso o no
 

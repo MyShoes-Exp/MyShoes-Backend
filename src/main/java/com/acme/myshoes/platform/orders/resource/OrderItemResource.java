@@ -3,17 +3,17 @@ package com.acme.myshoes.platform.orders.resource;
 import jakarta.persistence.Column;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.With;
+import lombok.*;
 
 @Getter
 @Setter
-@NoArgsConstructor
 @With
-public class CreateOrderResource {
+@NoArgsConstructor
+@AllArgsConstructor
+public class OrderItemResource {
+    private Long id;
     @NotNull
     @NotBlank
-    private String type_shoes;
+    @Column
+    private Long id_shoes;
 }

@@ -4,16 +4,13 @@ import jakarta.persistence.Column;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.With;
 
 @Getter
 @Setter
-@NoArgsConstructor
-@With
-public class CreateOrderResource {
+public class UpdateOrderItemResource {
+    private Long id;
     @NotNull
     @NotBlank
-    private String type_shoes;
+    private Long id_shoes;
 }

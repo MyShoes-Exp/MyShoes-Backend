@@ -27,7 +27,6 @@ public class Order extends AuditModel {
 
     @NotNull
     @NotBlank
-    @Column
     private String type_shoes;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "order")

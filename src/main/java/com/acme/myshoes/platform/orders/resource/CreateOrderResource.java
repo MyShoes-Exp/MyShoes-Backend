@@ -13,7 +13,5 @@ import lombok.With;
 @NoArgsConstructor
 @With
 public class CreateOrderResource {
-    @NotNull
-    @NotBlank
-    private String type_shoes;
+
 }

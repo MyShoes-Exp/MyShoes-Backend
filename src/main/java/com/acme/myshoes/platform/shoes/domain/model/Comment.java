@@ -2,46 +2,39 @@ package com.acme.myshoes.platform.shoes.domain.model;
 
 import com.acme.myshoes.platform.shared.domain.model.AuditModel;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.*;
 
-import java.util.HashSet;
-import java.util.Set;
 
 @Getter
 @Setter
 @With
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity //para la creación de su mapeo en base de datos
-@Table(name = "shoe") // especificar el nombre para seguir la convencion correcta
-public class Shoe extends AuditModel {
+@Entity
+@Table(name = "comment")
+public class Comment extends AuditModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotNull
     @NotBlank
-    @Size(max=60)
+    @Size(max=150)
     @Column(unique = true)
     private String name;
 
-    private int size;
-
     //Relationships
-    @ManyToOne
-    @JoinColumn(name="collection_id", nullable = false)
-    @JsonIgnore
-    private Collection collection;
 
-    @ManyToOne
-    @JoinColumn(name="category_id", nullable = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @JoinColumn(name="shoe_id", nullable = false)
     @JsonIgnore
-    private Category category;
+    private Shoe shoe;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "shoe")
-    private Set<Comment> comments = new HashSet<>();
 }

@@ -19,4 +19,7 @@ public class MappingConfiguration {
     public CategoryMapper categoryMapper() {
         return new CategoryMapper();
     }
+
+    @Bean
+    public CommentMapper commentMapper(){return new CommentMapper();}
 }

@@ -22,19 +22,15 @@ public class Shoe extends AuditModel {
 
     @NotNull
     @NotBlank
-    @Size(max=20)
+    @Size(max=60)
     @Column(unique = true)
     private String name;
 
-    @NotNull
-    @NotBlank
-    @Size(max=20)
-
-    private float size;
+    private int size;
 
     //Relationships
     @ManyToOne
-    @JoinColumn(name="shoe_id", nullable = false)
+    @JoinColumn(name="collection_id", nullable = false)
     @JsonIgnore
     private Collection collection;
 

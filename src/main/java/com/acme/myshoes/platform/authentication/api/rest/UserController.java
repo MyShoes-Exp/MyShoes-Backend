@@ -1,10 +1,10 @@
-package com.acme.myshoes.platform.shoes.api.rest;
+package com.acme.myshoes.platform.authentication.api.rest;
 
-import com.acme.myshoes.platform.shoes.domain.service.UserService;
-import com.acme.myshoes.platform.shoes.mapping.UserMapper;
-import com.acme.myshoes.platform.shoes.resource.CreateUserResource;
-import com.acme.myshoes.platform.shoes.resource.UpdateUserResource;
-import com.acme.myshoes.platform.shoes.resource.UserResource;
+import com.acme.myshoes.platform.authentication.domain.service.UserService;
+import com.acme.myshoes.platform.authentication.mapping.UserMapper;
+import com.acme.myshoes.platform.authentication.resource.CreateUserResource;
+import com.acme.myshoes.platform.authentication.resource.UpdateUserResource;
+import com.acme.myshoes.platform.authentication.resource.UserResource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;

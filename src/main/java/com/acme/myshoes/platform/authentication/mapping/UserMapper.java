@@ -1,10 +1,10 @@
-package com.acme.myshoes.platform.shoes.mapping;
+package com.acme.myshoes.platform.authentication.mapping;
 
 import com.acme.myshoes.platform.shared.mapping.EnhancedModelMapper;
-import com.acme.myshoes.platform.shoes.domain.model.User;
-import com.acme.myshoes.platform.shoes.resource.CreateUserResource;
-import com.acme.myshoes.platform.shoes.resource.UpdateUserResource;
-import com.acme.myshoes.platform.shoes.resource.UserResource;
+import com.acme.myshoes.platform.authentication.domain.model.User;
+import com.acme.myshoes.platform.authentication.resource.CreateUserResource;
+import com.acme.myshoes.platform.authentication.resource.UpdateUserResource;
+import com.acme.myshoes.platform.authentication.resource.UserResource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;

@@ -4,10 +4,11 @@ import com.acme.myshoes.platform.authentication.domain.model.entity.Role;
 import com.acme.myshoes.platform.authentication.domain.model.enumeration.Roles;
 import com.acme.myshoes.platform.authentication.domain.persistence.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
 import java.util.List;
-
+@Service
 public class RoleServiceImpl implements RoleService{
     @Autowired
     private RoleRepository roleRepository;

@@ -36,7 +36,7 @@ public class User extends AuditModel {
     @NotNull
     @NotBlank
     @Size(max = 9)
-    private int phone;
+    private String  phone;
 
     @NotNull
     @NotBlank

@@ -2,6 +2,7 @@ package com.acme.myshoes.platform.authentication.domain.model;
 
 import com.acme.myshoes.platform.shared.domain.model.AuditModel;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -21,7 +22,6 @@ public class User extends AuditModel {
 
     @NotNull
     @NotBlank
-    @Size(max = 60)
     private String name;
 
     @NotNull
@@ -31,10 +31,16 @@ public class User extends AuditModel {
 
     @NotNull
     @NotBlank
-    @Size(max = 60)
+    private String country;
+
+    @NotNull
+    @NotBlank
+    @Size(max = 9)
+    private int phone;
+
+    @NotNull
+    @NotBlank
+    @Email
     @Column(unique = true)
     private String email;
-
-    @Size(max = 240)
-    private String address;
 }

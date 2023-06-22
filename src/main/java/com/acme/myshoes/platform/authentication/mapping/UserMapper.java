@@ -1,10 +1,13 @@
 package com.acme.myshoes.platform.authentication.mapping;
 
+import com.acme.myshoes.platform.authentication.domain.model.entity.Role;
 import com.acme.myshoes.platform.shared.mapping.EnhancedModelMapper;
 import com.acme.myshoes.platform.authentication.domain.model.entity.User;
 import com.acme.myshoes.platform.authentication.resource.CreateUserResource;
 import com.acme.myshoes.platform.authentication.resource.UpdateUserResource;
 import com.acme.myshoes.platform.authentication.resource.UserResource;
+import org.modelmapper.AbstractConverter;
+import org.modelmapper.Converter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -16,6 +19,13 @@ import java.util.List;
 public class UserMapper implements Serializable {
     @Autowired
     private EnhancedModelMapper mapper;
+    Converter<Role, String> roleToString = new AbstractConverter<Role, String>() {
+        @Override
+        protected String convert(Role role) {
+            return role == null ? null : role.getName().name();
+        }
+    };
+
     public UserResource toResource(User model){
         return mapper.map(model, UserResource.class);
     }

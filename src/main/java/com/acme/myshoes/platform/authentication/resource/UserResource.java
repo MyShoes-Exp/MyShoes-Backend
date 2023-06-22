@@ -2,6 +2,8 @@ package com.acme.myshoes.platform.authentication.resource;
 
 import lombok.*;
 
+import java.util.List;
+
 @Getter
 @Setter
 @With
@@ -14,4 +16,5 @@ public class UserResource {
     private String password;
     private String country;
     private String phone;
+    private List<RoleResource> roles;
 }

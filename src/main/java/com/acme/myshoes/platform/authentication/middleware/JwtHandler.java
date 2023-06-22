@@ -25,7 +25,7 @@ public class JwtHandler {
     private int expirationDays;
 
     public String generateToken(Authentication authentication) {
-        String subject = ((UserDetailsImpl) authentication.getPrincipal()).getUsername();
+        String subject = ((UserDetailsImpl) authentication.getPrincipal()).getName();
         Date issuedAt = new Date();
         Date expiration = DateUtils.addDays(issuedAt, expirationDays);
         Key secretKey = Keys.hmacShaKeyFor(secret.getBytes());
@@ -38,7 +38,7 @@ public class JwtHandler {
                 .compact();
     }
 
-    public String getUsernameFrom(String token) {
+    public String getNameFrom(String token) {
         try {
             return Jwts.parserBuilder()
                     .setSigningKey(secret.getBytes())

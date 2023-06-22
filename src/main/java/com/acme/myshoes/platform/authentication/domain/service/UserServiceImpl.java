@@ -56,7 +56,6 @@ public class UserServiceImpl implements UserService {
         return userRepository.findById(userId).map(userToUpdate ->
                         userRepository.save(
                                 userToUpdate.withName(user.getName())
-                                        .withAddress(user.getAddress())
                                         .withEmail(user.getEmail())
                                         .withPassword(user.getPassword())))
                 .orElseThrow(() -> new ResourceNotFoundException(ENTITY, userId));

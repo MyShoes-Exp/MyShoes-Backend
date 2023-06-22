@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface UserService {
     List<User> getAll();
-    Page<User> getAl(Pageable pageable);
+    Page<User> getAll(Pageable pageable);
     User getById(Long userId);
     User create(User user);
     User update(Long userId, User user);

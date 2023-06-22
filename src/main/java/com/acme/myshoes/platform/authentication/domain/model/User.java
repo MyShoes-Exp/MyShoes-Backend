@@ -26,6 +26,12 @@ public class User extends AuditModel {
 
     @NotNull
     @NotBlank
+    @Email
+    @Column(unique = true)
+    private String email;
+
+    @NotNull
+    @NotBlank
     @Size(max = 240)
     private String password;
 
@@ -37,10 +43,4 @@ public class User extends AuditModel {
     @NotBlank
     @Size(max = 9)
     private String  phone;
-
-    @NotNull
-    @NotBlank
-    @Email
-    @Column(unique = true)
-    private String email;
 }

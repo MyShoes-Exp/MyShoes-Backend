@@ -8,6 +8,9 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.*;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Getter
 @Setter
 @With
@@ -43,4 +46,18 @@ public class User extends AuditModel {
     @NotBlank
     @Size(max = 9)
     private String  phone;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "user_roles",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> roles = new HashSet<>();
+
+    public User(@NotNull String name, @NotNull String email, String password, String country, String phone) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.country = country;
+        this.phone = phone;
+    }
 }

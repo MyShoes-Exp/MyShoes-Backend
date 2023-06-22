@@ -1,6 +1,6 @@
 package com.acme.myshoes.platform.authentication.domain.persistence;
 
-import com.acme.myshoes.platform.authentication.domain.model.User;
+import com.acme.myshoes.platform.authentication.domain.model.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

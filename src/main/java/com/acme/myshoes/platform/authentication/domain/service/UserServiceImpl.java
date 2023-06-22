@@ -1,8 +1,7 @@
 package com.acme.myshoes.platform.authentication.domain.service;
 
-import com.acme.myshoes.platform.authentication.domain.model.User;
+import com.acme.myshoes.platform.authentication.domain.model.entity.User;
 import com.acme.myshoes.platform.authentication.domain.persistence.UserRepository;
-import com.acme.myshoes.platform.authentication.domain.service.UserService;
 import com.acme.myshoes.platform.shoes.exception.ResourceNotFoundException;
 import com.acme.myshoes.platform.shoes.exception.ResourceValidationException;
 import jakarta.validation.ConstraintViolation;
@@ -29,7 +28,7 @@ public class UserServiceImpl implements UserService {
         return userRepository.findAll();
     }
     @Override
-    public Page<User> getAl(Pageable pageable) {
+    public Page<User> getAll(Pageable pageable) {
         return userRepository.findAll(pageable);
     }
     @Override
@@ -57,6 +56,8 @@ public class UserServiceImpl implements UserService {
                         userRepository.save(
                                 userToUpdate.withName(user.getName())
                                         .withEmail(user.getEmail())
+                                        .withCountry(user.getCountry())
+                                        .withPhone(user.getPhone())
                                         .withPassword(user.getPassword())))
                 .orElseThrow(() -> new ResourceNotFoundException(ENTITY, userId));
     }

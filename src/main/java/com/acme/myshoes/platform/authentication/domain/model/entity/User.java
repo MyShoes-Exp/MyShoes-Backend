@@ -1,4 +1,4 @@
-package com.acme.myshoes.platform.authentication.domain.model;
+package com.acme.myshoes.platform.authentication.domain.model.entity;
 
 import com.acme.myshoes.platform.shared.domain.model.AuditModel;
 import jakarta.persistence.*;

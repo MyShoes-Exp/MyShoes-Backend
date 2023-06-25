@@ -14,6 +14,7 @@ public interface CollectionService {
     Page<Collection> getAll(Pageable pageable);
     Collection getById(Long collectionId);
     Collection getByName(String name);
+    List<Collection> getByUser(Long user_id);
     Collection create(Collection collection);
     Collection update(Long id, Collection collection);
     ResponseEntity<?> delete(Long collectionId); // este es un response porque al eliminar solo te devolvera si fue exitoso o no

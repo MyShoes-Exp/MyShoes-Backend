@@ -2,9 +2,8 @@ package com.acme.myshoes.platform.authentication.domain.service;
 
 import com.acme.myshoes.platform.authentication.domain.model.User;
 import com.acme.myshoes.platform.authentication.domain.persistence.UserRepository;
-import com.acme.myshoes.platform.authentication.domain.service.UserService;
-import com.acme.myshoes.platform.shoes.exception.ResourceNotFoundException;
-import com.acme.myshoes.platform.shoes.exception.ResourceValidationException;
+import com.acme.myshoes.platform.shared.exception.ResourceNotFoundException;
+import com.acme.myshoes.platform.shared.exception.ResourceValidationException;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validator;
 import org.springframework.data.domain.Page;

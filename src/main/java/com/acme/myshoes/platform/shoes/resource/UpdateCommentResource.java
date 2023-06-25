@@ -10,10 +10,9 @@ import lombok.*;
 @With
 @NoArgsConstructor
 @AllArgsConstructor
-public class CreateCollectionResource {
+public class UpdateCommentResource {
     @NotNull
     @NotBlank
-    @Size(max=60)
+    @Size(max=150)
     String name;
-    Long user;
 }

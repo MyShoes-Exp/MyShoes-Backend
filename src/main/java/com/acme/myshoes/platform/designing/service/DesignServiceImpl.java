@@ -1,8 +1,7 @@
 package com.acme.myshoes.platform.designing.service;
 
-import com.acme.myshoes.platform.shoes.domain.model.Shoe;
-import com.acme.myshoes.platform.shoes.exception.ResourceNotFoundException;
-import com.acme.myshoes.platform.shoes.exception.ResourceValidationException;
+import com.acme.myshoes.platform.shared.exception.ResourceNotFoundException;
+import com.acme.myshoes.platform.shared.exception.ResourceValidationException;
 import com.acme.myshoes.platform.designing.domain.model.Design;
 import com.acme.myshoes.platform.designing.domain.persistence.DesignRepository;
 import com.acme.myshoes.platform.designing.domain.service.DesignService;

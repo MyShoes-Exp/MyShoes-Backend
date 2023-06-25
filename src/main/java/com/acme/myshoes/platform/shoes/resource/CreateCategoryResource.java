@@ -10,10 +10,9 @@ import lombok.*;
 @With
 @NoArgsConstructor
 @AllArgsConstructor
-public class CreateCollectionResource {
+public class CreateCategoryResource {
     @NotNull
     @NotBlank
     @Size(max=60)
     String name;
-    Long user;
 }

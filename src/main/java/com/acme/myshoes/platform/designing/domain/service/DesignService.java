@@ -12,7 +12,7 @@ public interface DesignService {
     List<Design> getAll();
     Page<Design> getAll(Pageable pageable);
     Design create(Design design);
-    ResponseEntity<?> delete(Long shoppingCartId);
+    ResponseEntity<?> delete(Long designId);
     Design getById(Long design_id);
 
     Design update(Long id, Design design);

@@ -8,6 +8,9 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.*;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Getter
 @Setter
 @With
@@ -33,5 +36,12 @@ public class Shoe extends AuditModel {
     @JoinColumn(name="collection_id", nullable = false)
     @JsonIgnore
     private Collection collection;
+  
+    @ManyToOne
+    @JoinColumn(name="category_id", nullable = false)
+    @JsonIgnore
+    private Category category;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "shoe")
+    private Set<Comment> comments = new HashSet<>();
 }

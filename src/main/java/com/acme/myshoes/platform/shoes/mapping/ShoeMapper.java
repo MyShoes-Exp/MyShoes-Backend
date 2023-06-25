@@ -11,17 +11,28 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ShoeMapper implements Serializable {
     @Autowired
     EnhancedModelMapper mapper;
     public ShoeResource toResource(Shoe model){
-        return mapper.map(model, ShoeResource.class);
+        ShoeResource resource = mapper.map(model, ShoeResource.class);
+        resource.setCollection_id(model.getCollection().getId());
+        resource.setCategory_id(model.getCategory().getId());
+        return resource;
     }
 
     public Page<ShoeResource> modelListPage(List<Shoe> modelList, Pageable pageable){
-        return new PageImpl<>(mapper.mapList(modelList, ShoeResource.class), pageable, modelList.size());
+        List<ShoeResource> resourceList = new ArrayList<>();
+        for (Shoe model : modelList) {
+            ShoeResource resource = mapper.map(model, ShoeResource.class);
+            resource.setCollection_id(model.getCollection().getId());
+            resource.setCategory_id(model.getCategory().getId());
+            resourceList.add(resource);
+        }
+        return new PageImpl<>(resourceList, pageable, modelList.size());
     }
 
     public Shoe toModel(CreateShoeResource resource){

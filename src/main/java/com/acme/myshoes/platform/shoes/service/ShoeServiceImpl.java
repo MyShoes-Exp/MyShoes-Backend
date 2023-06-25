@@ -1,9 +1,11 @@
-package com.acme.myshoes.platform.shoes.domain.service;
+package com.acme.myshoes.platform.shoes.service;
 
 import com.acme.myshoes.platform.shoes.domain.model.Collection;
 import com.acme.myshoes.platform.shoes.domain.model.Shoe;
+import com.acme.myshoes.platform.shoes.domain.persistence.CategoryRepository;
 import com.acme.myshoes.platform.shoes.domain.persistence.CollectionRepository;
 import com.acme.myshoes.platform.shoes.domain.persistence.ShoeRepository;
+import com.acme.myshoes.platform.shoes.domain.service.ShoeService;
 import com.acme.myshoes.platform.shoes.exception.ResourceNotFoundException;
 import com.acme.myshoes.platform.shoes.exception.ResourceValidationException;
 import jakarta.validation.ConstraintViolation;
@@ -19,15 +21,17 @@ import java.util.Optional;
 import java.util.Set;
 
 @Service
-public class ShoeServiceImpl implements ShoeService{
+public class ShoeServiceImpl implements ShoeService {
     private static final String Entity = "Collection";
     private final ShoeRepository shoeRepository;
     private final CollectionRepository collectionRepository;
+    private final CategoryRepository categoryRepository;
     private final Validator validator;
 
-    public ShoeServiceImpl(ShoeRepository shoeRepository, CollectionRepository collectionRepository, Validator validator) {
+    public ShoeServiceImpl(ShoeRepository shoeRepository, CollectionRepository collectionRepository, CategoryRepository categoryRepository, Validator validator) {
         this.shoeRepository = shoeRepository;
         this.collectionRepository = collectionRepository;
+        this.categoryRepository = categoryRepository;
         this.validator = validator;
     }
 
@@ -66,12 +70,19 @@ public class ShoeServiceImpl implements ShoeService{
     }
 
     @Override
-    public Shoe create(Shoe shoe) {
+    public Shoe create(Shoe shoe,Long collectionId, Long categoryId) {
+        shoe.setCollection(
+                collectionRepository.findById(collectionId).orElseThrow(()-> new ResourceNotFoundException("No exists a collection with this id"))
+        );
+        shoe.setCategory(
+                categoryRepository.findById(categoryId).orElseThrow(()-> new ResourceNotFoundException("No exists a collection with this id"))
+        );
         Set<ConstraintViolation<Shoe>> violations = validator.validate(shoe);
         if(!violations.isEmpty())
             throw new ResourceValidationException(ENTITY, violations);
         if(shoeRepository.findByName(shoe.getName()).isPresent())
             throw new ResourceValidationException(ENTITY, "An collection with the same name already exists.");
+
         return shoeRepository.save(shoe);
     }
 

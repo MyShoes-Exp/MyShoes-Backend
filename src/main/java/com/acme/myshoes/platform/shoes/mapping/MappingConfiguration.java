@@ -1,5 +1,7 @@
 package com.acme.myshoes.platform.shoes.mapping;
 
+import com.acme.myshoes.platform.shoes.domain.model.Category;
+import com.acme.myshoes.platform.shoes.domain.model.Collection;
 import com.acme.myshoes.platform.authentication.mapping.UserMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,5 +17,16 @@ public class MappingConfiguration {
         return new ShoeMapper();
     }
     @Bean
-    public UserMapper userMapper(){return new UserMapper();}
+    public CategoryMapper categoryMapper() {
+        return new CategoryMapper();
+    }
+
+    @Bean
+    public CommentMapper commentMapper(){
+      return new CommentMapper();
+    }
+    @Bean
+    public UserMapper userMapper(){
+      return new UserMapper();
+    }
 }

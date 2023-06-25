@@ -36,7 +36,7 @@ public class Shoe extends AuditModel {
     @JoinColumn(name="collection_id", nullable = false)
     @JsonIgnore
     private Collection collection;
-
+  
     @ManyToOne
     @JoinColumn(name="category_id", nullable = false)
     @JsonIgnore

@@ -17,6 +17,8 @@ public class CreateShoeResource {
     @Size(max=60)
     String name;
     int size;
+    String img;
+    int price;
     Long collection;
     Long category;
 

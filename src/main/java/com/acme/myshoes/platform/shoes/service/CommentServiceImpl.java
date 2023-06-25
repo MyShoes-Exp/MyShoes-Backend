@@ -1,11 +1,10 @@
 package com.acme.myshoes.platform.shoes.service;
 
-import com.acme.myshoes.platform.shoes.domain.model.Collection;
 import com.acme.myshoes.platform.shoes.domain.model.Comment;
 import com.acme.myshoes.platform.shoes.domain.persistence.CommentRepository;
 import com.acme.myshoes.platform.shoes.domain.service.CommentService;
-import com.acme.myshoes.platform.shoes.exception.ResourceNotFoundException;
-import com.acme.myshoes.platform.shoes.exception.ResourceValidationException;
+import com.acme.myshoes.platform.shared.exception.ResourceNotFoundException;
+import com.acme.myshoes.platform.shared.exception.ResourceValidationException;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validator;
 import org.springframework.data.domain.Page;

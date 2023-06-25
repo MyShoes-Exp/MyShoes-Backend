@@ -1,4 +1,4 @@
-package com.acme.myshoes.platform.shoes.exception;
+package com.acme.myshoes.platform.shared.exception;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 

@@ -1,5 +1,7 @@
 package com.acme.myshoes.platform.shoes.service;
 
+import com.acme.myshoes.platform.authentication.api.internal.AuthenticationContextFacade;
+import com.acme.myshoes.platform.authentication.domain.model.User;
 import com.acme.myshoes.platform.shoes.domain.model.Collection;
 import com.acme.myshoes.platform.shoes.domain.persistence.CollectionRepository;
 import com.acme.myshoes.platform.shoes.domain.service.CollectionService;
@@ -24,10 +26,12 @@ public class CollectionServiceImpl implements CollectionService {
     private static final String Entity = "Collection";
     private final CollectionRepository collectionRepository;
     private final Validator validator;
+    private final AuthenticationContextFacade authenticationContextFacade;
 
-    public CollectionServiceImpl(CollectionRepository collectionRepository, Validator validator) {
+    public CollectionServiceImpl(CollectionRepository collectionRepository, Validator validator, AuthenticationContextFacade authenticationContextFacade) {
         this.collectionRepository = collectionRepository;
         this.validator = validator;
+        this.authenticationContextFacade = authenticationContextFacade;
     }
 
     @Override
@@ -53,12 +57,20 @@ public class CollectionServiceImpl implements CollectionService {
     }
 
     @Override
+    public List<Collection> getByUser(Long user_id) {
+        return collectionRepository.findAllByUser(user_id);
+    }
+
+    @Override
     public Collection create(Collection collection) {
         Set<ConstraintViolation<Collection>> violations = validator.validate(collection);
         if(!violations.isEmpty())
             throw new ResourceValidationException(ENTITY, violations);
         if(collectionRepository.findByName(collection.getName()).isPresent())
             throw new ResourceValidationException(ENTITY, "An collection with the same name already exists.");
+        Optional<User> userWithId = authenticationContextFacade.getUserById(collection.getUser());
+        if (!userWithId.isPresent())
+            throw new ResourceValidationException(ENTITY, "A user with that ID doesn't exist.");
         return collectionRepository.save(collection);
     }
 

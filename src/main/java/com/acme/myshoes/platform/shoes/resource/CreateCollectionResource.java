@@ -15,5 +15,5 @@ public class CreateCollectionResource {
     @NotBlank
     @Size(max=60)
     String name;
-
+    Long user;
 }

@@ -30,7 +30,7 @@ public class UserController {
         return mapper.toResource(userService.getById(userId));
     }
     @PostMapping
-    public ResponseEntity<UserResource> createUser(CreateUserResource resource) {
+    public ResponseEntity<UserResource> createUser(@RequestBody CreateUserResource resource) {
         return new ResponseEntity<>(mapper.toResource(userService.create(mapper.toModel(resource))), HttpStatus.CREATED);
     }
     @PutMapping("{userId}")

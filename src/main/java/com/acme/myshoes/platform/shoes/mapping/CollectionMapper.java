@@ -26,8 +26,11 @@ public class CollectionMapper implements Serializable {
         return new PageImpl<>(mapper.mapList(modelList, CollectionResource.class), pageable, modelList.size());
     }
 
-    public List<ShoeResource> modelListResource(List<Shoe> modelList){
+    public List<ShoeResource> modelListResourceS(List<Shoe> modelList){
         return mapper.mapList(modelList, ShoeResource.class);
+    }
+    public List<CollectionResource> modelListResourceC(List<Collection> modelList){
+        return mapper.mapList(modelList, CollectionResource.class);
     }
 
     public Collection toModel(CreateCollectionResource resource){

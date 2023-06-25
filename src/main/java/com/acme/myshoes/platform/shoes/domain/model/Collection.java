@@ -29,6 +29,9 @@ public class Collection extends AuditModel {
     @Column(unique = true)
     private String name;
 
+    @Column(name = "user_id")
+    private Long user;
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "collection")
     private Set<Shoe> shoes = new HashSet<>();
 }

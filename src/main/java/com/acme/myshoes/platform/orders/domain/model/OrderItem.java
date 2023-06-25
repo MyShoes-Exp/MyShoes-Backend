@@ -30,7 +30,7 @@ public class OrderItem extends AuditModel {
     @NotNull
     @NotBlank
     @Column
-    private Long id_shoes;
+    private Long shoe_id;
 
 
 }

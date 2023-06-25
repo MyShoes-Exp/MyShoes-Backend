@@ -38,7 +38,12 @@ public class CollectionController {
 
     @GetMapping("{collectionId}/shoes")
     public List<ShoeResource> getShoesByCollectionId(@PathVariable Long collectionId){
-        return mapper.modelListResource(shoeService.getByCollectionId(collectionId));
+        return mapper.modelListResourceS(shoeService.getByCollectionId(collectionId));
+    }
+
+    @GetMapping("user/{userId}")
+    public List<CollectionResource> getCollectionByUserId(@PathVariable Long userId){
+        return mapper.modelListResourceC(collectionService.getByUser(userId));
     }
 
     @PostMapping

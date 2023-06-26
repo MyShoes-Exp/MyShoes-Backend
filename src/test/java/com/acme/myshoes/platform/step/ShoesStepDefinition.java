@@ -10,6 +10,8 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 
+import java.lang.Long;
+
 public class ShoesStepDefinition {
     private final TestRestTemplate testRestTemplate = new TestRestTemplate();
     @LocalServerPort
@@ -21,8 +23,8 @@ public class ShoesStepDefinition {
         this.endpointPath = String.format(endpointPath, randomServerPort);
     }
 
-    @When('A Post Request is sent with values {string}, {int}, {string}, {int}, {Long}, {Long}')
-public void aPostRequestIsSentWithValues(String name, int size, String img, int price, Long collection_id, Long category_id) {
+    @When("A Post Request is sent with values {string}, {int}, {string}, {int}, {Long}, {Long}")
+    public void aPostRequestIsSentWithValues(String name, int size, String img, int price, Long collection_id, Long category_id) {
         CreateShoeResource resource = new CreateShoeResource()
                 .withName(name)
                 .withSize(size)

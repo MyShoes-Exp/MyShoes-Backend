@@ -10,6 +10,7 @@ import jakarta.validation.Validator;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
@@ -17,6 +18,7 @@ import java.util.Set;
 
 import static org.hibernate.usertype.DynamicParameterizedType.ENTITY;
 
+@Service
 public class CommentServiceImpl implements CommentService {
     private static final String Entity = "Comment";
     private final CommentRepository commentRepository;

@@ -31,6 +31,10 @@ public class Shoe extends AuditModel {
 
     private int size;
 
+    private String img;
+
+    private int price;
+
     //Relationships
     @ManyToOne
     @JoinColumn(name="collection_id", nullable = false)

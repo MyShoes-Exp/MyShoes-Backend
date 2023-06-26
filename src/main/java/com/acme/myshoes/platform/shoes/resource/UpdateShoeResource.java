@@ -17,4 +17,5 @@ public class UpdateShoeResource {
     String name;
     int size;
 
+
 }

@@ -1,5 +1,6 @@
 package com.acme.myshoes.platform.orders.mapping;
 
+import com.acme.myshoes.platform.orders.domain.persistence.OrderRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

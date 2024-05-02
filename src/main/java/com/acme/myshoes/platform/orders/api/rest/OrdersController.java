@@ -22,9 +22,6 @@ public class OrdersController {
         this.mapper = mapper;
     }
 
-
-
-
     @GetMapping
     public Page<OrderResource> getAllOrder(Pageable pageable){
         return mapper.modelListPage(orderService.getAll(), pageable);

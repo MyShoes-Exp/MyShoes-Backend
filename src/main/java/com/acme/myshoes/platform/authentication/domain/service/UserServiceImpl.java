@@ -27,8 +27,14 @@ public class UserServiceImpl implements UserService {
     public List<User> getAll() {
         return userRepository.findAll();
     }
+
+
     @Override
     public Page<User> getAl(Pageable pageable) {
+        return null;
+    }
+    @Override
+    public Page<User> getAll(Pageable pageable) {
         return userRepository.findAll(pageable);
     }
     @Override
@@ -38,6 +44,18 @@ public class UserServiceImpl implements UserService {
     }
     @Override
     public User create(User user) {
+        if (user.getEmail() == null || user.getEmail().isEmpty()) {
+            throw new ResourceValidationException("Email cannot be empty");
+        }
+
+        if (user.getName() == null || user.getName().isEmpty()) {
+            throw new ResourceValidationException("Name cannot be empty");
+        }
+
+        if (user.getPassword() == null || user.getPassword().isEmpty()) {
+            throw new ResourceValidationException("Password cannot be empty");
+        }
+
         Set<ConstraintViolation<User>> violations = validator.validate(user);
 
         if(!violations.isEmpty())

@@ -18,7 +18,7 @@ public class CreateUserResource {
     private String name;
     @NotNull
     @NotBlank
-    @Size(max = 240)
+    @Size(max = 60)
     private String password;
     @NotNull
     @NotBlank

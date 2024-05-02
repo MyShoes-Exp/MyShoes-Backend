@@ -5,20 +5,28 @@ import com.acme.myshoes.platform.authentication.domain.model.User;
 import com.acme.myshoes.platform.authentication.domain.service.UserService;
 import com.acme.myshoes.platform.authentication.mapping.UserMapper;
 import com.acme.myshoes.platform.authentication.resource.CreateUserResource;
+import com.acme.myshoes.platform.authentication.resource.UpdateUserResource;
 import com.acme.myshoes.platform.authentication.resource.UserResource;
+import com.acme.myshoes.platform.shared.exception.ResourceValidationException;
+import jakarta.validation.Validator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.when;
 
 public class UserControllerTest {
+
+    @Mock
+    private Validator validator;
 
     @Mock
     private UserService userService;
@@ -64,6 +72,15 @@ public class UserControllerTest {
         // Assertions
         assertEquals(HttpStatus.CREATED, responseEntity.getStatusCode());
         assertEquals(mappedUserResource, responseEntity.getBody());
+    }
+
+    @Test
+    public void deleteUserTest() {
+        when(userService.delete(1L)).thenReturn(ResponseEntity.ok().build());
+
+        ResponseEntity<?> result = userController.deleteUser(1L);
+
+        assertEquals(HttpStatus.OK, result.getStatusCode());
     }
 
     @Test
